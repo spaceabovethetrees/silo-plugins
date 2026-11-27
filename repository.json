@@ -3,14 +3,14 @@
     {
       "manifest": {
         "plugin_id": "community.mdblist-sync",
-        "version": "1.0.6",
-        "checksum": "15173949b5d2af935b603b2f91b3d270650ee083e3c1b620382c0c4697a0a6a8",
+        "version": "1.0.7",
+        "checksum": "5260ac007a92dbf38afeed6e094073b1eb0ad4427ab92a2b69dd5c6a6d04f156",
         "silo_api_version": "v1",
         "presentation": {
           "display_name": "MDBList Sync",
           "summary": "Sync private and public MDBList collections (Dynamic, AI, Static, Feed) into Silo libraries.",
-          "description_markdown": "Synchronizes your private, unlisted, and public MDBList lists (Dynamic, AI, Static, Feed, Liked, and External) into Silo Server. MDBList Sync always creates new collections with their own dedicated IDs, so it never touches or modifies your existing collections.\n\n- **Full privacy & multi-library matching:** Reads private lists via your personal API key and lets you map each list to specific Movie and TV libraries.\n- **Order, visibility & cleanup:** Optionally preserve original MDBList rank order, hide empty collections until titles are available, and cleanly remove disabled collections.\n- **Flexible & event-driven sync:** Runs every 24 hours by default, supports more frequent custom schedules directly inside the plugin, and reacts automatically when library items change.\n- **Full localization:** Translated into all 37 languages supported by Silo Server, automatically following your active interface language.\n- **Built-in diagnostics:** View live sync logs and copy anonymized logs with credentials stripped for safe troubleshooting.\n\n*Disclaimer: This is an independent community plugin. You can inspect the full source code on GitHub. Always keep a backup of your Silo data \u2014 use at your own risk.*",
-          "setup_markdown": "1. Enter your **MDBList API Key** (from `mdblist.com/preferences/#api`) and **Silo Admin API Key** (from **Administration \u2192 API Keys**) below.\n2. Open **MDBList Sync** in the admin sidebar to fetch your lists and enable the ones you want to sync.\n3. Sync runs automatically every **24 hours** by default \u2014 you can choose a more frequent schedule directly inside the plugin under **Tasks**.",
+          "description_markdown": "Synchronizes your private, unlisted, and public MDBList lists (Dynamic, AI, Static, Feed, Liked, and External) into Silo Server. MDBList Sync always creates new collections with their own dedicated IDs, so it never touches or modifies your existing collections.\n\n- **Full privacy & multi-library matching:** Reads private lists via your personal API key and lets you map each list to specific Movie and TV libraries.\n- **Order, visibility & cleanup:** Optionally preserve original MDBList rank order, hide empty collections until titles are available, and cleanly remove disabled collections.\n- **Flexible & event-driven sync:** Runs every 24 hours by default, supports more frequent custom schedules directly inside the plugin, and reacts automatically when library items change.\n- **Full localization:** Translated into all 37 languages supported by Silo Server, automatically following your active interface language.\n- **Built-in diagnostics:** View live sync logs and copy anonymized logs with credentials stripped for safe troubleshooting.\n\n*Disclaimer: This is an independent community plugin. You can inspect the full source code on GitHub. Always keep a backup of your Silo data — use at your own risk.*",
+          "setup_markdown": "1. Enter your **MDBList API Key** (from `mdblist.com/preferences/#api`) and **Silo Admin API Key** (from **Admin → Sign-In & Security → API Keys**) below.\n2. Open **MDBList Sync** in the admin sidebar to fetch your lists and enable the ones you want to sync.\n3. Sync runs automatically every **24 hours** by default — you can choose a more frequent schedule directly inside the plugin under **Tasks**.",
           "homepage_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
           "source_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
           "support_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/issues",
@@ -36,7 +36,118 @@
             "type": "http_routes.v1",
             "id": "web-ui",
             "display_name": "MDBList Sync Page",
-            "description": "Administrator page for managing private and public MDBList collection sync."
+            "description": "Administrator page for managing private and public MDBList collection sync.",
+            "http_routes": {
+              "routes": [
+                {
+                  "id": "ui",
+                  "method": "GET",
+                  "path": "/",
+                  "access": "admin",
+                  "navigable": true,
+                  "navigation_label": "MDBList Sync",
+                  "navigation_kind": "admin"
+                },
+                {
+                  "id": "styles-css",
+                  "method": "GET",
+                  "path": "/styles.css",
+                  "access": "admin",
+                  "static_asset": true
+                },
+                {
+                  "id": "app-js",
+                  "method": "GET",
+                  "path": "/app.js",
+                  "access": "admin",
+                  "static_asset": true
+                },
+                {
+                  "id": "state",
+                  "method": "GET",
+                  "path": "/api/state",
+                  "access": "admin"
+                },
+                {
+                  "id": "refresh",
+                  "method": "POST",
+                  "path": "/api/refresh",
+                  "access": "admin"
+                },
+                {
+                  "id": "rules",
+                  "method": "PUT",
+                  "path": "/api/rules",
+                  "access": "admin"
+                },
+                {
+                  "id": "sync",
+                  "method": "POST",
+                  "path": "/api/sync",
+                  "access": "admin"
+                },
+                {
+                  "id": "locales",
+                  "method": "GET",
+                  "path": "/locales/*",
+                  "access": "admin"
+                },
+                {
+                  "id": "logs-get",
+                  "method": "GET",
+                  "path": "/api/logs",
+                  "access": "admin"
+                },
+                {
+                  "id": "logs-del",
+                  "method": "DELETE",
+                  "path": "/api/logs",
+                  "access": "admin"
+                },
+                {
+                  "id": "col-del",
+                  "method": "POST",
+                  "path": "/api/delete-collection",
+                  "access": "admin"
+                },
+                {
+                  "id": "settings-put",
+                  "method": "PUT",
+                  "path": "/api/settings",
+                  "access": "admin"
+                },
+                {
+                  "id": "schedule",
+                  "method": "POST",
+                  "path": "/api/schedule",
+                  "access": "admin",
+                  "navigable": false,
+                  "navigation_label": "",
+                  "navigation_kind": "",
+                  "static_asset": false
+                },
+                {
+                  "id": "logs-anon",
+                  "method": "GET",
+                  "path": "/api/logs/anonymized",
+                  "access": "admin",
+                  "navigable": false,
+                  "navigation_label": "",
+                  "navigation_kind": "",
+                  "static_asset": false
+                },
+                {
+                  "id": "changelog",
+                  "method": "GET",
+                  "path": "/api/changelog",
+                  "access": "admin",
+                  "navigable": false,
+                  "navigation_label": "",
+                  "navigation_kind": "",
+                  "static_asset": false
+                }
+              ]
+            }
           },
           {
             "type": "event_consumer.v1",
@@ -66,7 +177,7 @@
                 {
                   "key": "silo_api_key",
                   "label": "Silo Admin API Key",
-                  "description": "Administrator API key created in Administration \u2192 API Keys.",
+                  "description": "Administrator API key created in Administration → API Keys.",
                   "control": 3,
                   "required": true,
                   "secret": true
@@ -160,6 +271,8 @@
             "path": "/api/schedule",
             "access": "admin",
             "navigable": false,
+            "navigation_label": "",
+            "navigation_kind": "",
             "static_asset": false
           },
           {
@@ -168,6 +281,18 @@
             "path": "/api/logs/anonymized",
             "access": "admin",
             "navigable": false,
+            "navigation_label": "",
+            "navigation_kind": "",
+            "static_asset": false
+          },
+          {
+            "id": "changelog",
+            "method": "GET",
+            "path": "/api/changelog",
+            "access": "admin",
+            "navigable": false,
+            "navigation_label": "",
+            "navigation_kind": "",
             "static_asset": false
           }
         ],
@@ -194,20 +319,20 @@
       "repo_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
       "binaries": {
         "darwin/arm64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.6/mdblist-sync-darwin-arm64",
-          "checksum": "8f109c1cf0bee1b2e648621a78b3a75d29b111e01dea503c5d5d166718396aa8"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7/mdblist-sync-darwin-arm64",
+          "checksum": "db5ecae56774dd15c0897edcaabfc41cf17565fa9e155138b4198a043db3ed02"
         },
         "linux/amd64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.6/mdblist-sync-linux-amd64",
-          "checksum": "15173949b5d2af935b603b2f91b3d270650ee083e3c1b620382c0c4697a0a6a8"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7/mdblist-sync-linux-amd64",
+          "checksum": "5260ac007a92dbf38afeed6e094073b1eb0ad4427ab92a2b69dd5c6a6d04f156"
         },
         "linux/arm64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.6/mdblist-sync-linux-arm64",
-          "checksum": "ebf5a5946895a6a0a4fabfea73884b0009bff432f89d6e15591405bc48050d8d"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7/mdblist-sync-linux-arm64",
+          "checksum": "1ac3d508bdef07a451f28eb6560440631733b02be4c4a8b6ef9746e00da64e72"
         },
         "windows/amd64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.6/mdblist-sync-windows-amd64.exe",
-          "checksum": "885caf9a4d74273ec833fc0b06f9a6b6b91ee891d2adec1c0b11455ffa281d6c"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7/mdblist-sync-windows-amd64.exe",
+          "checksum": "ec5ad40a54bcba66385c792a2acb3ecc5d19338c0f8e3710c762d15a7fbeac9c"
         }
       }
     }
