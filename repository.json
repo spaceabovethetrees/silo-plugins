@@ -9,8 +9,8 @@
         "presentation": {
           "display_name": "MDBList Sync",
           "summary": "Sync private and public MDBList collections (Dynamic, AI, Static, Feed) into Silo libraries.",
-          "description_markdown": "Synchronizes your private, unlisted, and public MDBList lists (Dynamic, AI, Static, Feed, Liked, and External) into Silo Server. MDBList Sync always creates new collections with their own dedicated IDs, so it never touches or modifies your existing collections.\n\n- **Full privacy & multi-library matching:** Reads private lists via your personal API key and lets you map each list to specific Movie and TV libraries.\n- **Order, visibility & cleanup:** Optionally preserve original MDBList rank order, hide empty collections until titles are available, and cleanly remove disabled collections.\n- **Flexible & event-driven sync:** Runs every 24 hours by default, supports more frequent custom schedules directly inside the plugin, and reacts automatically when library items change.\n- **Full localization:** Translated into all 37 languages supported by Silo Server, automatically following your active interface language.\n- **Built-in diagnostics:** View live sync logs and copy anonymized logs with credentials stripped for safe troubleshooting.\n\n*Disclaimer: This is an independent community plugin. You can inspect the full source code on GitHub. Always keep a backup of your Silo data — use at your own risk.*",
-          "setup_markdown": "1. Enter your **MDBList API Key** (from `mdblist.com/preferences/#api`) and **Silo Admin API Key** (from **Admin → Sign-In & Security → API Keys**) below.\n2. Open **MDBList Sync** in the admin sidebar to fetch your lists and enable the ones you want to sync.\n3. Sync runs automatically every **24 hours** by default — you can choose a more frequent schedule directly inside the plugin under **Tasks**.",
+          "description_markdown": "Synchronizes your private, unlisted, and public MDBList lists (Dynamic, AI, Static, Feed, Liked, and External) into Silo Server. MDBList Sync always creates new collections with their own dedicated IDs, so it never touches or modifies your existing collections.\n\n- **Full privacy & multi-library matching:** Reads private lists via your personal API key and lets you map each list to specific Movie and TV libraries.\n- **Order, visibility & cleanup:** Optionally preserve original MDBList rank order, hide empty collections until titles are available, and cleanly remove disabled collections.\n- **Flexible & event-driven sync:** Runs every 24 hours by default, supports more frequent custom schedules directly inside the plugin, and reacts automatically when library items change.\n- **Full localization:** Translated into all 37 languages supported by Silo Server, automatically following your active interface language.\n- **Built-in diagnostics:** View live sync logs and copy anonymized logs with credentials stripped for safe troubleshooting.\n\n*Disclaimer: This is an independent community plugin. You can inspect the full source code on GitHub. Always keep a backup of your Silo data \u2014 use at your own risk.*",
+          "setup_markdown": "1. Enter your **MDBList API Key** (from `mdblist.com/preferences/#api`) and **Silo Admin API Key** (from **Admin \u2192 Sign-In & Security \u2192 API Keys**) below.\n2. Open **MDBList Sync** in the admin sidebar to fetch your lists and enable the ones you want to sync.\n3. Sync runs automatically every **24 hours** by default \u2014 you can choose a more frequent schedule directly inside the plugin under **Tasks**.",
           "homepage_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
           "source_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
           "support_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/issues",
@@ -36,118 +36,7 @@
             "type": "http_routes.v1",
             "id": "web-ui",
             "display_name": "MDBList Sync Page",
-            "description": "Administrator page for managing private and public MDBList collection sync.",
-            "http_routes": {
-              "routes": [
-                {
-                  "id": "ui",
-                  "method": "GET",
-                  "path": "/",
-                  "access": "admin",
-                  "navigable": true,
-                  "navigation_label": "MDBList Sync",
-                  "navigation_kind": "admin"
-                },
-                {
-                  "id": "styles-css",
-                  "method": "GET",
-                  "path": "/styles.css",
-                  "access": "admin",
-                  "static_asset": true
-                },
-                {
-                  "id": "app-js",
-                  "method": "GET",
-                  "path": "/app.js",
-                  "access": "admin",
-                  "static_asset": true
-                },
-                {
-                  "id": "state",
-                  "method": "GET",
-                  "path": "/api/state",
-                  "access": "admin"
-                },
-                {
-                  "id": "refresh",
-                  "method": "POST",
-                  "path": "/api/refresh",
-                  "access": "admin"
-                },
-                {
-                  "id": "rules",
-                  "method": "PUT",
-                  "path": "/api/rules",
-                  "access": "admin"
-                },
-                {
-                  "id": "sync",
-                  "method": "POST",
-                  "path": "/api/sync",
-                  "access": "admin"
-                },
-                {
-                  "id": "locales",
-                  "method": "GET",
-                  "path": "/locales/*",
-                  "access": "admin"
-                },
-                {
-                  "id": "logs-get",
-                  "method": "GET",
-                  "path": "/api/logs",
-                  "access": "admin"
-                },
-                {
-                  "id": "logs-del",
-                  "method": "DELETE",
-                  "path": "/api/logs",
-                  "access": "admin"
-                },
-                {
-                  "id": "col-del",
-                  "method": "POST",
-                  "path": "/api/delete-collection",
-                  "access": "admin"
-                },
-                {
-                  "id": "settings-put",
-                  "method": "PUT",
-                  "path": "/api/settings",
-                  "access": "admin"
-                },
-                {
-                  "id": "schedule",
-                  "method": "POST",
-                  "path": "/api/schedule",
-                  "access": "admin",
-                  "navigable": false,
-                  "navigation_label": "",
-                  "navigation_kind": "",
-                  "static_asset": false
-                },
-                {
-                  "id": "logs-anon",
-                  "method": "GET",
-                  "path": "/api/logs/anonymized",
-                  "access": "admin",
-                  "navigable": false,
-                  "navigation_label": "",
-                  "navigation_kind": "",
-                  "static_asset": false
-                },
-                {
-                  "id": "changelog",
-                  "method": "GET",
-                  "path": "/api/changelog",
-                  "access": "admin",
-                  "navigable": false,
-                  "navigation_label": "",
-                  "navigation_kind": "",
-                  "static_asset": false
-                }
-              ]
-            }
+            "description": "Administrator page for managing private and public MDBList collection sync."
           },
           {
             "type": "event_consumer.v1",
@@ -177,7 +66,7 @@
                 {
                   "key": "silo_api_key",
                   "label": "Silo Admin API Key",
-                  "description": "Administrator API key created in Administration → API Keys.",
+                  "description": "Administrator API key created in Admin \u2192 Sign-In & Security \u2192 API Keys.",
                   "control": 3,
                   "required": true,
                   "secret": true
@@ -271,8 +160,6 @@
             "path": "/api/schedule",
             "access": "admin",
             "navigable": false,
-            "navigation_label": "",
-            "navigation_kind": "",
             "static_asset": false
           },
           {
@@ -281,8 +168,6 @@
             "path": "/api/logs/anonymized",
             "access": "admin",
             "navigable": false,
-            "navigation_label": "",
-            "navigation_kind": "",
             "static_asset": false
           },
           {
@@ -291,8 +176,6 @@
             "path": "/api/changelog",
             "access": "admin",
             "navigable": false,
-            "navigation_label": "",
-            "navigation_kind": "",
             "static_asset": false
           }
         ],
