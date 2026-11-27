@@ -3,14 +3,14 @@
     {
       "manifest": {
         "plugin_id": "community.mdblist-sync",
-        "version": "1.0.7-beta.1",
-        "checksum": "24c39b9315ad3238f7f5be47e4c38b31804122cc2e7d32c70cb95200f265cf3d",
+        "version": "1.0.7-beta.2",
+        "checksum": "d9d629d8518ff6d06f816144ba020c99a3dd4fa83dcc22fea84ab272d3a71683",
         "silo_api_version": "v1",
         "presentation": {
           "display_name": "MDBList Sync",
           "summary": "Sync private and public MDBList collections (Dynamic, AI, Static, Feed) into Silo libraries.",
           "description_markdown": "Synchronizes your private, unlisted, and public MDBList lists (Dynamic, AI, Static, Feed, Liked, and External) into Silo Server. MDBList Sync always creates new collections with their own dedicated IDs, so it never touches or modifies your existing collections.\n\n- **Full privacy & multi-library matching:** Reads private lists via your personal API key and lets you map each list to specific Movie and TV libraries.\n- **Order, visibility & cleanup:** Optionally preserve original MDBList rank order, hide empty collections until titles are available, and cleanly remove disabled collections.\n- **Flexible & event-driven sync:** Runs every 24 hours by default, supports more frequent custom schedules directly inside the plugin, and reacts automatically when library items change.\n- **Full localization:** Translated into all 37 languages supported by Silo Server, automatically following your active interface language.\n- **Built-in diagnostics:** View live sync logs and copy anonymized logs with credentials stripped for safe troubleshooting.\n\n*Disclaimer: This is an independent community plugin. You can inspect the full source code on GitHub. Always keep a backup of your Silo data — use at your own risk.*",
-          "setup_markdown": "1. Enter your **MDBList API Key** (from `mdblist.com/preferences/#api`) and **Silo Admin API Key** (from **Administration → API Keys**) below.\n2. Open **MDBList Sync** in the admin sidebar to fetch your lists and enable the ones you want to sync.\n3. Sync runs automatically every **24 hours** by default — you can choose a more frequent schedule directly inside the plugin under **Tasks**.",
+          "setup_markdown": "1. Enter your **MDBList API Key** (from `mdblist.com/preferences/#api`) and **Silo Admin API Key** (from **Admin → Sign-In & Security → API Keys**) below.\n2. Open **MDBList Sync** in the admin sidebar to fetch your lists and enable the ones you want to sync.\n3. Sync runs automatically every **24 hours** by default — you can choose a more frequent schedule directly inside the plugin under **Tasks**.",
           "homepage_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
           "source_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
           "support_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/issues",
@@ -130,6 +130,16 @@
                   "id": "logs-anon",
                   "method": "GET",
                   "path": "/api/logs/anonymized",
+                  "access": "admin",
+                  "navigable": false,
+                  "navigation_label": "",
+                  "navigation_kind": "",
+                  "static_asset": false
+                },
+                {
+                  "id": "changelog",
+                  "method": "GET",
+                  "path": "/api/changelog",
                   "access": "admin",
                   "navigable": false,
                   "navigation_label": "",
@@ -274,6 +284,16 @@
             "navigation_label": "",
             "navigation_kind": "",
             "static_asset": false
+          },
+          {
+            "id": "changelog",
+            "method": "GET",
+            "path": "/api/changelog",
+            "access": "admin",
+            "navigable": false,
+            "navigation_label": "",
+            "navigation_kind": "",
+            "static_asset": false
           }
         ],
         "supported_platforms": [
@@ -299,20 +319,20 @@
       "repo_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
       "binaries": {
         "darwin/arm64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7-beta.1/mdblist-sync-darwin-arm64",
-          "checksum": "6e0884e9c5cbdaba56bebe67b2a8b5599dc557f15b3bdbc74e7772781fb99946"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7-beta.2/mdblist-sync-darwin-arm64",
+          "checksum": "5ecfcf3d1d8f979c7ce28082fa0c19711065032fa58381545bf4be18614b8877"
         },
         "linux/amd64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7-beta.1/mdblist-sync-linux-amd64",
-          "checksum": "24c39b9315ad3238f7f5be47e4c38b31804122cc2e7d32c70cb95200f265cf3d"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7-beta.2/mdblist-sync-linux-amd64",
+          "checksum": "d9d629d8518ff6d06f816144ba020c99a3dd4fa83dcc22fea84ab272d3a71683"
         },
         "linux/arm64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7-beta.1/mdblist-sync-linux-arm64",
-          "checksum": "c1f65ae3cf9aff7b72e5e9e7c9add6dfc84600a72e482f02c1f9e904de47dba0"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7-beta.2/mdblist-sync-linux-arm64",
+          "checksum": "9a00ac8a815dd783793a4bee47b493e406fdaa0b5f9675670a8e767dbf39878b"
         },
         "windows/amd64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7-beta.1/mdblist-sync-windows-amd64.exe",
-          "checksum": "55fc4d7eedb7db5eeb6ed7ee995196a9208c4a3ea5fb25c0b8dec57b6f007895"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.7-beta.2/mdblist-sync-windows-amd64.exe",
+          "checksum": "963b4006cfd9c04ef2ab34f740c1361f454f292456b05f250d35b7cfccb0160f"
         }
       }
     }
