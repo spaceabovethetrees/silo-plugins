@@ -3,13 +3,13 @@
     {
       "manifest": {
         "plugin_id": "community.mdblist-sync",
-        "version": "1.0.8-beta.5",
-        "checksum": "f5006c7e1b6980e56ee99e478265d4cc99a11353cb71f770a7113cbba8cddcc0",
+        "version": "1.0.8-beta.6",
+        "checksum": "d51fc2d62b47736a0a0c6ea8d0d700ed23ebf3b2ce58a1d18fa327997a382dfa",
         "silo_api_version": "v1",
         "presentation": {
           "display_name": "MDBList Sync",
-          "summary": "Sync private and public MDBList collections (Dynamic, AI, Static, Feed) into Silo libraries.",
-          "description_markdown": "Synchronizes your private, unlisted, and public MDBList lists (Dynamic, AI, Static, Feed, Liked, and External) into Silo Server. MDBList Sync always creates new collections with their own dedicated IDs, so it never touches or modifies your existing collections.\n\n- **Full privacy & multi-library matching:** Reads private lists via your personal API key and lets you map each list to specific Movie and TV libraries.\n- **Order, visibility & cleanup:** Optionally preserve original MDBList rank order, hide empty collections until titles are available, and cleanly remove disabled collections.\n- **Flexible & event-driven sync:** Runs every 24 hours by default, supports more frequent custom schedules directly inside the plugin, and reacts automatically when library items change.\n- **Full localization:** Translated into all 37 languages supported by Silo Server, automatically following your active interface language.\n- **Built-in diagnostics:** View live sync logs and copy anonymized logs with credentials stripped for safe troubleshooting.\n\n*Disclaimer: This is an independent community plugin. You can inspect the full source code on GitHub. Always keep a backup of your Silo data — use at your own risk.*",
+          "summary": "Sync private, unlisted & public MDBList lists, Watchlist, and discover lists into Silo collections — designed primarily for MDBList Supporters.",
+          "description_markdown": "**MDBList Sync** synchronizes your MDBList account into dedicated Silo collections without ever modifying unrelated collections.\n\n### Designed Primarily for MDBList Supporters\nThis plugin is built primarily for **MDBList Supporters** (Basic €1 / Standard €2 / Plus €3 / VIP €5 per month — 10,000 to 250,000 API calls/day, private lists, Watchlist, Dynamic, AI, Static, Feed, Liked, and External lists).\n\n- **Free MDBList Tier:** Free MDBList accounts (1,000 API calls/day, no Feed or AI lists) are supported for light usage, and the plugin automatically throttles background cover enrichment to help protect your daily quota. Learn more at [MDBList Supporter & API Limits](https://docs.mdblist.com/docs/supporter).\n\n### Key Features\n- **Complete List & Watchlist Sync:** Syncs your pinned Watchlist plus Private, Unlisted, and Public lists (Dynamic, AI, Static, Feed, Liked, External) with 5-poster mini-coverflows and two-way editable collection descriptions.\n- **Discover & Remote Control:** Search public lists and creators with phonetic/fuzzy matching, browse Top & Curated lists, and Like/Unlike directly from Silo.\n- **Per-Library Mapping & Ordering:** Map lists across Movie/TV libraries, optionally mirror MDBList rank order (up to Silo's 200-item ordering limit), and hide collections with 0 local matches.\n- **Flexible Automation & 37 Languages:** Scheduled + event-driven auto-sync, localized across all 37 Silo languages, with 7-day diagnostic logs and anonymized GitHub issue reporting.\n\n*Independent community plugin — the developers of this plugin are not in any way affiliated with MDBList.com. Always keep a backup of your Silo data — use at your own risk.*",
           "setup_markdown": "1. Enter your **MDBList API Key** (from `mdblist.com/preferences/#api`) and **Silo Admin API Key** (from **Admin → Sign-In & Security → API Keys**) below.\n2. Open **MDBList Sync** in the admin sidebar to fetch your lists and enable the ones you want to sync.\n3. Sync runs automatically every **24 hours** by default — you can choose a more frequent schedule directly inside the plugin under **Tasks**.",
           "homepage_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
           "source_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
@@ -355,20 +355,20 @@
       "repo_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
       "binaries": {
         "darwin/arm64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.5/mdblist-sync-darwin-arm64",
-          "checksum": "8762fd0910d8c31ae659b74bfcd16ab6f5d5da8f44a40fc24f550acbace3bcdc"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.6/mdblist-sync-darwin-arm64",
+          "checksum": "aab7b290601abd0678602faaefc79a25009f5d13c407d195c4409c99a60b089a"
         },
         "linux/amd64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.5/mdblist-sync-linux-amd64",
-          "checksum": "f5006c7e1b6980e56ee99e478265d4cc99a11353cb71f770a7113cbba8cddcc0"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.6/mdblist-sync-linux-amd64",
+          "checksum": "d51fc2d62b47736a0a0c6ea8d0d700ed23ebf3b2ce58a1d18fa327997a382dfa"
         },
         "linux/arm64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.5/mdblist-sync-linux-arm64",
-          "checksum": "5d767961ecfe5a791b4f0e7b6d3ded71deed28852165217533f9d054197d76ed"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.6/mdblist-sync-linux-arm64",
+          "checksum": "7bf5b72f8d667d97a822bf119c8c2237270b75dd26ec80c2564b4ab7d0cb6591"
         },
         "windows/amd64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.5/mdblist-sync-windows-amd64.exe",
-          "checksum": "f8833833428ba73f36d5eb291805a1d5b5c132b085c627192c6b83f0f0e2029d"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.6/mdblist-sync-windows-amd64.exe",
+          "checksum": "ad9276e824ef0cfdad99442a2162870af9f444600c97e40e98e338c4b449bcfe"
         }
       }
     }
