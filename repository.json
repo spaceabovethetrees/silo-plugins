@@ -3,8 +3,8 @@
     {
       "manifest": {
         "plugin_id": "community.mdblist-sync",
-        "version": "1.0.8-beta.6",
-        "checksum": "d51fc2d62b47736a0a0c6ea8d0d700ed23ebf3b2ce58a1d18fa327997a382dfa",
+        "version": "1.0.8-beta.7",
+        "checksum": "502521befa59d4de0b894db7f68f0ef3ba0b58fdd3ac085ab07b99f121ecff55",
         "silo_api_version": "v1",
         "presentation": {
           "display_name": "MDBList Sync",
@@ -355,20 +355,20 @@
       "repo_url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync",
       "binaries": {
         "darwin/arm64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.6/mdblist-sync-darwin-arm64",
-          "checksum": "aab7b290601abd0678602faaefc79a25009f5d13c407d195c4409c99a60b089a"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.7/mdblist-sync-darwin-arm64",
+          "checksum": "f0f99ef0349294efd7d7327a33e5cc3583c8556d837b75e72ed5e3b38ceb3d15"
         },
         "linux/amd64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.6/mdblist-sync-linux-amd64",
-          "checksum": "d51fc2d62b47736a0a0c6ea8d0d700ed23ebf3b2ce58a1d18fa327997a382dfa"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.7/mdblist-sync-linux-amd64",
+          "checksum": "502521befa59d4de0b894db7f68f0ef3ba0b58fdd3ac085ab07b99f121ecff55"
         },
         "linux/arm64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.6/mdblist-sync-linux-arm64",
-          "checksum": "7bf5b72f8d667d97a822bf119c8c2237270b75dd26ec80c2564b4ab7d0cb6591"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.7/mdblist-sync-linux-arm64",
+          "checksum": "bc44875846eafc2a90ba0d1492940ee5f8cfe52e96a2f58d0534f05c737e09ee"
         },
         "windows/amd64": {
-          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.6/mdblist-sync-windows-amd64.exe",
-          "checksum": "ad9276e824ef0cfdad99442a2162870af9f444600c97e40e98e338c4b449bcfe"
+          "url": "https://github.com/spaceabovethetrees/silo-plugin-mdblist-sync/releases/download/v1.0.8-beta.7/mdblist-sync-windows-amd64.exe",
+          "checksum": "a19948b7c59e34c954c365369cee0530ba87bdd4c1e39f043718c7986f780054"
         }
       }
     }
